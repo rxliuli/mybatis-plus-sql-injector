@@ -41,7 +41,7 @@ public class CustomSqlInjector extends AutoSqlInjector {
     public void existsById(Class<?> mapperClass, Class<?> modelClass, TableInfo table) {
         final String sql = String.format(SQL_EXISTS_BY_ID, table.getTableName());
         final SqlSource sqlSource = languageDriver.createSqlSource(configuration, sql, modelClass);
-        this.addSelectMappedStatement(mapperClass, "existsById", sqlSource, modelClass, table);
+        this.addSelectMappedStatement(mapperClass, "existsById", sqlSource, Boolean.class, table);
     }
 
     public void deleteForAll(Class<?> mapperClass, Class<?> modelClass, TableInfo table) {
